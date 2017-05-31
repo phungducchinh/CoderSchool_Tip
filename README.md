@@ -4,7 +4,7 @@
 
 Submitted by: **Phung Duc Chinh**
 
-Time spent: **02** hours spent in total
+Time spent: **06** hours spent in total
 
 ## User Stories
 
@@ -13,10 +13,8 @@ The following **required** functionality is complete:
 * [v] User can enter a bill amount, choose a tip percentage, and see the tip and total values.
 * [v] Settings page to change the default tip percentage.
 
-The following **optional** features are implemented:
-
 The following **additional** features are implemented:
-
+* [v] User can enter a name of store, customer, staff and see all information in bill.
 
 
 ## Video Walkthrough 

@@ -8,13 +8,21 @@
 
 import UIKit
 
+var tip: Double = 80
+var store: String = ""
+var staff: String = ""
+var customer: String = ""
+var bill: Double = 0
+var tipPercentages = [18, 20, 25]
+
 class ViewController: UIViewController {
 
-    @IBOutlet weak var billField: UITextField!
-    @IBOutlet weak var tipLabel: UILabel!
-    @IBOutlet weak var totalLabel: UILabel!
-    @IBOutlet weak var tipControl: UISegmentedControl!
-    
+    @IBOutlet weak var txtStore: UITextField!
+    @IBOutlet weak var txtCustomer: UITextField!
+    @IBOutlet weak var txtStaff: UITextField!
+    @IBOutlet weak var txtBill: UITextField!
+    @IBOutlet weak var txtTip: UISegmentedControl!
+    var viewctl: PrintViewController = PrintViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -25,20 +33,35 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func onTap(_ sender: Any) {
-        view.endEditing(true)
-    }
 
-    @IBAction func caculateTip(_ sender: Any) {
-        
-        let tipPercentages = [ 0.18, 0.2, 0.25]
-        
-        let bill = Double(billField.text!) ?? 0
-        let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
-        let total = bill + tip
-        
-        tipLabel.text = String(format: "$%.2f", tip )
-        totalLabel.text = String(format: "$%.2f", total)
+    @IBAction func onTap(_ sender: Any) {
+    }
+    
+    @IBAction func tapStore(_ sender: Any) {
+        store = txtStore.text!
+    }
+    
+    @IBAction func tapStaff(_ sender: Any) {
+        staff = txtStaff.text!
+    }
+    
+    @IBAction func tapCustomer(_ sender: Any) {
+        customer = txtCustomer.text!
+    }
+    
+    @IBAction func tapBill(_ sender: Any) {
+        bill = Double(txtBill.text!) ?? 0
+    }
+   
+    @IBAction func tapTip(_ sender: Any) {
+        tip = Double(tipPercentages[txtTip.selectedSegmentIndex])
+    }
+    
+    @IBAction func tapNext(_ sender: Any) {
+        store += txtStore.text!
+        customer += txtCustomer.text!
+        staff += txtStaff.text!
+        bill = Double(txtBill.text!) ?? 0
     }
 }
 
